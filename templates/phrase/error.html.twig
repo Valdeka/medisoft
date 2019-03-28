@@ -1,0 +1,13 @@
+{# templates/phrase/error.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Phrase analyser{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <p class="h2 text-center m-4">Phrase analyser</p>
+        <p class="h4 text-center" style="color:red">Some error occured. Please try again</p>
+        <a class="btn btn-primary float-right" href={{ path('phrase') }} role="button">Back</a>
+    </div>
+{% endblock %}

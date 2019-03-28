@@ -1,0 +1,28 @@
+{# templates/poker.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Card chance guessing game{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% if error %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Please specify a valid card</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+
+        <p class="h2 text-center m-4">Card chance guessing game</p>
+
+        {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_row(form.card, {'attr': {'class': 'form-control', 'maxlength' : '3'}}) }}
+        </div>
+
+        <input type="submit" class="btn btn-primary float-right" />
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

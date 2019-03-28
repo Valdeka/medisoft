@@ -1,0 +1,51 @@
+{# templates/phrase/results.html.twig #}
+
+{% extends 'base.html.twig' %}
+{% block title %}Phrase analyser{% endblock %}
+{% block body %}
+    <div class="container">
+        <p class="h2 text-center m-4">Results:</p>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Char</th>
+                <th scope="col">Frequency</th>
+                <th scope="col">Before</th>
+                <th scope="col">After</th>
+                <th scope="col">Max. Distance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in data %}
+            <tr>
+                <th scope="row">{{ item['value'] }}</th>
+                <td>{{ item['count'] }}</td>
+
+                {% if item['before'] is defined %}
+                    <td>{{  item['before']|join(', ') }}</td>
+                {% else %}
+                    <td>none</td>
+                {% endif %}
+
+                {% if item['after'] is defined %}
+                    <td>{{  item['after']|join(', ') }}</td>
+                {% else %}
+                    <td>none</td>
+                {% endif %}
+
+                {% if item['max-distance'] is defined %}
+                    <td>{{  item['max-distance']|join(', ') }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary float-right" href={{ path('phrase') }} role="button">Back</a>
+    </div>
+
+{% endblock %}

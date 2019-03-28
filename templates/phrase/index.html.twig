@@ -1,0 +1,19 @@
+{# templates/phrase/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Phrase analyser{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <p class="h2 text-center m-4">Phrase analyser</p>
+
+        {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_row(form.phrase, {'attr': {'class': 'form-control', 'maxlength' : '255', 'rows': 5}}) }}
+        </div>
+
+        <input type="submit" class="btn btn-primary float-right" value="Analyze"/>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

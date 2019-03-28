@@ -1,0 +1,18 @@
+{# templates/chance.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}You have finished the game!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <p class="h2 text-center m-4">You have finished the game!</p>
+        <p class="h2 text-center m-4">You drew the {{ card }} from {{ tries }}'th try. Last chance to draw this card was {{ last_chance|number_format(2, '.', ',') }}%</p>
+
+        <div class="row">
+            <div class="col text-center">
+                <a href="{{ path('pick_a_card') }}" class="btn btn-primary">Play again</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
